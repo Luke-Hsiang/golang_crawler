@@ -13,8 +13,10 @@ type Reporter struct {
 // News is an article about recent events wrote by reporters
 type News struct {
 	gorm.Model
-	Title   string
-	Content string
+	ReporterID int
+	Reporter   Reporter `gorm:"constraint:OnDelete:SET NULL;"`
+	Title      string
+	Content    string
 }
 
 // InitModel init models in current app
